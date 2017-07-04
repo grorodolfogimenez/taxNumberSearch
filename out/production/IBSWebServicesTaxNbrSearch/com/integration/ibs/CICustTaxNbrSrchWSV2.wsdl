@@ -1,0 +1,51 @@
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="mtvnCICustTaxNbrSrchWSV2" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:import0="mtvnCWCICustTaxNbrSrchSvcReq"
+	xmlns:import1="mtvnCWCICustTaxNbrSrchSvcRes"
+	targetNamespace="mtvnCICustTaxNbrSrchWSV2" name="mtvnCICustTaxNbrSrchWSV2" xmlns="http://schemas.xmlsoap.org/wsdl/">
+
+	<documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Connectware Web Service Interface</documentation>
+
+	<types>
+		<xsd:schema>
+			<xsd:import schemaLocation="./CICustTaxNbrSrchWSV2SvcReq.xsd" namespace="mtvnCWCICustTaxNbrSrchSvcReq" />
+			<xsd:import schemaLocation="./CICustTaxNbrSrchWSV2SvcRes.xsd" namespace="mtvnCWCICustTaxNbrSrchSvcRes" />
+		</xsd:schema>
+	</types>
+
+	<message name="CICustTaxNbrSrchMtvnSvcReqMsg">
+		<documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+		<part name="messagePart" element="import0:CICustTaxNbrSrchMtvnSvcReq" />
+	</message>
+	<message name="CICustTaxNbrSrchMtvnSvcResMsg">
+		<documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+		<part name="messagePart" element="import1:CICustTaxNbrSrchMtvnSvcRes" />
+	</message>
+
+	<portType name="mtvnCWCICustTaxNbrSrchWSV2Interface">
+		<documentation xmlns="http://schemas.xmlsoap.org/wsdl/">CICustTaxNbrSrchWSV2</documentation>
+		<operation name="CICustTaxNbrSrch">
+			<documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+			<input message="tns:CICustTaxNbrSrchMtvnSvcReqMsg" />
+			<output message="tns:CICustTaxNbrSrchMtvnSvcResMsg" />
+		</operation>
+	</portType>
+
+	<binding name="mtvnCWCICustTaxNbrSrchWSV2" type="tns:mtvnCWCICustTaxNbrSrchWSV2Interface">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+		<operation name="CICustTaxNbrSrch">
+			<soap:operation soapAction="CICustTaxNbrSrchWSV2:CICustTaxNbrSrchMtvnSvcReqMsg" style="document" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+	</binding>
+
+	<service name="mtvnCWCICustTaxNbrSrchWSV2">
+		<port name="mtvnCWCICustTaxNbrSrchWSV2Port" binding="tns:mtvnCWCICustTaxNbrSrchWSV2">
+			<soap:address location="https://xmlgateway.readiness.metavante.org:8888/ConnectwareWS/CICustTaxNbrSrchWSV2" />
+		</port>
+	</service>
+</definitions>
